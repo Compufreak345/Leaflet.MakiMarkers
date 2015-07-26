@@ -11,7 +11,7 @@
  * License:
  *   MIT: http://jseppi.mit-license.org/
  */
- /*global L:false */
+/*global L:false */
 (function () {
   "use strict";
   L.MakiMarkers = {
@@ -36,6 +36,10 @@
     defaultIcon: "circle-stroked",
     defaultSize: "m",
     apiUrl: "https://api.tiles.mapbox.com/v3/marker/",
+    tinyOptions: {
+      iconSize: [10, 30],
+      popupAnchor: [0,-10]
+    },
     smallOptions: {
       iconSize: [20, 50],
       popupAnchor: [0,-20]
@@ -75,6 +79,10 @@
           break;
         case "l":
           L.extend(options, L.MakiMarkers.largeOptions);
+          break;
+        case "t":
+          options.size="s";
+          L.extend(options, L.MakiMarkers.tinyOptions);
           break;
         default:
           options.size = "m";
